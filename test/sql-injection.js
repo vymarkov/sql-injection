@@ -15,11 +15,10 @@ describe('basic tests', function() {
     });
 });
 
-
 describe('supertests', function() {
 
     before(function(done) {
-        
+
         app.use(sqlinjection);
         app.get('/test', function(req, res) {
             res.send(200, {});
@@ -39,53 +38,40 @@ describe('supertests', function() {
 
     it('can call app', function(done) {
 
-        request(app)
-          .get('/test')
-          .expect(200, done);
+        request(app).get('/test').expect(200, done);
     });
 
     it('querystring no sql', function(done) {
 
-        request(app)
-          .get('/test')
-          .expect(200, done);
+        request(app).get('/test?attack=noattack').expect(200, done);
     });
 
     it('param no sql', function(done) {
 
-        request(app)
-          .get('/users/1')
-          .expect(200, done);
+        request(app).get('/users/1').expect(200, done);
     });
-    
+
     it('body no sql', function(done) {
 
-        request(app)
-          .post('/body')
-          .send({stuff: 'somestuff'})
-          .expect(200, done);
+        request(app).post('/body').send({
+            stuff: 'somestuff'
+        }).expect(200, done);
     });
-    
+
     it('querystring with sql', function(done) {
 
-        request(app)
-          .get('/test?attack=' + escape('select * from table;'))
-          .expect(403, done);
+        request(app).get('/test?attack=' + escape('WHERE field = \'anything\' OR \'x\'=\'x\'\'')).expect(403, done);
     });
 
     it('param with sql', function(done) {
 
-        request(app)
-          .get('/users/' + escape('select * from table;'))
-          .expect(403, done);
+        request(app).get('/users/' + escape('WHERE field = \'anything\' OR \'x\'=\'x\'\'')).expect(403, done);
     });
-    
+
     it('body with sql', function(done) {
 
-        // request(app)
-        //   .post('/body')
-        //   .send({stuff: 'select * from table;'})
-        //   .expect(403, done);
-        done();
+        request(app).post('/body').send({
+            stuff: 'WHERE field = \'anything\' OR \'x\'=\'x\'\''
+        }).expect(403, done);
     });
 });

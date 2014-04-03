@@ -12,7 +12,9 @@
   "scripts": {
     "test": "grunt test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "raw-body": "^1.1.3"
+  },
   "devDependencies": {
     "chai": "~1.8.1",
     "grunt": "~0.4.1",
