@@ -4,7 +4,7 @@ var request = require('supertest');
 var xpect = require('chai').expect;
 var express = require('express');
 var app = express();
-var sqlinjection = require('../lib/sql-injection');
+var sqlinjection = require('../lib/index');
 
 describe('basic tests', function() {
 
