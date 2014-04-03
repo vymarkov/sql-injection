@@ -22,9 +22,14 @@ app.use(sqlinjection);
 code example:
 
 ```js
-var app = express();
+var express = require('express');
 var sqlinjection = require('sql-injection');
-app.use(sqlinjection);
+
+var app = express();
+
+app.configure(function() {
+    app.use(sqlinjection);  // add sql-injection middleware here
+});
 
 app.get('/route1', function(req, res) {
     res.send(200, {});
