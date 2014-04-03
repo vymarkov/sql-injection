@@ -1,7 +1,7 @@
 {
   "name": "sql-injection",
-  "description": "This express module detects sql injection attacks and stops them.",
-  "version": "0.0.4",
+  "description": "This express module detects sql injection attacks and stops them with 403 http status code.",
+  "version": "0.0.5",
   "author": "Ghafran Abbas <ghafranabbas@gmail.com>",
   "homepage": "https://github.com/socialradar/sql-injection",
   "repository": {
@@ -30,6 +30,7 @@
   "keywords": [
     "sql",
     "injection",
+    "sqlinjection",
     "security",
     "express",
     "expressjs",
