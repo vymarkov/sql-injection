@@ -6,12 +6,11 @@ sql-injection
 This express module detects sql injection attacks and stops them by sending 403 as response.
 The module checks the query string, route params, and body for any sql injection related content.
 
-
-'''js
+```js
 var app = express();
 var sqlinjection = require('sql-injection');
 app.use(sqlinjection);
-'''
+```
 
 ## Installation
 
