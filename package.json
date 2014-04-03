@@ -1,14 +1,14 @@
 {
   "name": "sql-injection",
   "description": "This express module detects sql injection attacks and stops them.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Ghafran Abbas <ghafranabbas@gmail.com>",
   "homepage": "https://github.com/socialradar/sql-injection",
   "repository": {
     "type": "git",
     "url": "https://github.com/socialradar/sql-injection"
   },
-  "main": "lib/sql-injection.js",
+  "main": "./lib/sql-injection.js",
   "scripts": {
     "test": "grunt test"
   },
